@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] [Header("跳往公司網頁按鈕")] Button goToCompany_Btn;
     [SerializeField] [Header("跳往公司網頁頁面")] GameObject goToCompany_Page;
 
+    [SerializeField] [Header("商品資訊 按鈕")] Button info_Btn;
+    [SerializeField] [Header("商品資訊 頁面")] GameObject info_Page;
+
     bool isChoosing;
+    bool isInfo;
 
     void Awake()
     {
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
     void InitializeValue()
     {
         isChoosing = false;
+        isInfo = false;
     }
 
     /// <summary>
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
     {
         choosePage_Btn.onClick.AddListener(IsChoosing);
         goToCompany_Btn.onClick.AddListener(GotoCompany);
+        info_Btn.onClick.AddListener(ShowInfo);
     }
 
     /// <summary>
@@ -63,5 +69,14 @@ public class GameManager : MonoBehaviour
     void GotoCompany()
     {
         goToCompany_Page.SetActive(true);
+    }
+
+    /// <summary>
+    /// 顯示資訊
+    /// </summary>
+    void ShowInfo()
+    {
+        isInfo = !isInfo;
+        info_Page.SetActive(isInfo);
     }
 }
