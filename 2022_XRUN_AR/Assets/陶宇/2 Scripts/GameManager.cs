@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] [Header("商品資訊 按鈕")] Button info_Btn;
     [SerializeField] [Header("商品資訊 頁面")] GameObject info_Page;
 
+    [SerializeField] [Header("浴缸物件")] public GameObject bathtubModel;
+    [SerializeField] [Header("馬桶物件")] public GameObject toiletModel;
+
+
     bool isChoosing;
     bool isInfo;
 
@@ -78,5 +82,21 @@ public class GameManager : MonoBehaviour
     {
         isInfo = !isInfo;
         info_Page.SetActive(isInfo);
+    }
+    public void bathtub_model()
+    {
+        Instantiate(bathtubModel, new Vector3(-2, 0, 0), gameObject.transform.rotation);
+    }
+    
+
+
+    public void toilet_model()
+    {
+        Instantiate(toiletModel, new Vector3(-2, 0, 0), gameObject.transform.rotation);
+        
+    }
+    public void toilet_model_URL()
+    {
+        Application.OpenURL("https://smarttoilet.twtoto.com.tw/?utm_source=yahoo&utm_medium=keyword&utm_campaign=smarttoilet&utm_content=8&utm_term=%E9%A6%AC%E6%A1%B6");
     }
 }
